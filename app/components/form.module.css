@@ -5,6 +5,10 @@
     padding: 2em;
   }
   
+  .form h2 {
+    margin-bottom: 0.5em;
+  }
+
   .formGroup {
     margin-bottom: 1.5rem;
   }

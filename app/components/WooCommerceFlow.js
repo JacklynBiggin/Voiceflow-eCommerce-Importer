@@ -93,8 +93,6 @@ export default function WooCommerceFlow({ importableData, setImportableData }) {
                                         }
 
                                         setError('');
-                                        console.log(wcProductData);
-                                        console.log(wpExportData);
 
                                         // Create a map of WordPress products by ID for quick lookup
                                         const wpProductsMap = wpExportData.channel.item.reduce((acc, item) => {

@@ -38,19 +38,57 @@ export function parseXML(xmlContent) {
 }
 
 export function parseCSV(csvContent) {
-    const lines = csvContent.split('\n');
-    const headers = parseCSVLine(lines[0]);
+    // Don't split on newlines that are within quotes
+    const records = [];
+    let currentRecord = '';
+    let insideQuotes = false;
     
-    const products = lines.slice(1).map(line => {
-        if (!line.trim()) return null; // Skip empty lines
-        const values = parseCSVLine(line);
+    for (let i = 0; i < csvContent.length; i++) {
+        const char = csvContent[i];
         
-        // Skip if we don't have the right number of values
-        if (values.length !== headers.length) return null;
+        if (char === '"') {
+            insideQuotes = !insideQuotes;
+        }
+        
+        if ((char === '\n' || char === '\r') && !insideQuotes) {
+            if (currentRecord.trim()) {
+                records.push(currentRecord);
+            }
+            currentRecord = '';
+            // Skip the \n if we just processed a \r
+            if (char === '\r' && csvContent[i + 1] === '\n') {
+                i++;
+            }
+        } else {
+            currentRecord += char;
+        }
+    }
+    // Don't forget the last record
+    if (currentRecord.trim()) {
+        records.push(currentRecord);
+    }
+
+    const headers = parseCSVLine(records[0]);
+    
+    const products = records.slice(1).map(record => {
+        const values = parseCSVLine(record);
+        
+        if (values.length !== headers.length) {
+            console.warn('Mismatched length:', { 
+                headers, 
+                headerLength: headers.length,
+                values,
+                valueLength: values.length,
+                originalRecord: record
+            });
+            return null;
+        }
         
         const product = {};
         headers.forEach((header, index) => {
-            product[header] = values[index];
+            if (!header) return;
+            const value = values[index];
+            product[header] = value === '' ? null : value;
         });
         return product;
     }).filter(product => product !== null);
@@ -68,25 +106,31 @@ function parseCSVLine(line) {
         
         if (char === '"') {
             if (insideQuotes && line[i + 1] === '"') {
-                // Handle escaped quotes (two double quotes in a row)
                 currentValue += '"';
-                i++; // Skip the next quote
+                i++;
             } else {
-                // Toggle insideQuotes flag
                 insideQuotes = !insideQuotes;
+                // Add this character to preserve original quotes
+                currentValue += char;
             }
         } else if (char === ',' && !insideQuotes) {
-            // End of field
-            values.push(currentValue.trim());
+            values.push(currentValue);
             currentValue = '';
         } else {
             currentValue += char;
         }
     }
     
-    // Push the last value
-    values.push(currentValue.trim());
+    values.push(currentValue);
     
-    // Clean up any remaining quotes at the start/end of values
-    return values.map(value => value.replace(/^"(.*)"$/, '$1'));
+    return values.map(value => {
+        // Only clean up if the value starts and ends with quotes
+        if (value.startsWith('"') && value.endsWith('"')) {
+            // Remove only the enclosing quotes
+            value = value.slice(1, -1);
+            // Replace escaped quotes with single quotes
+            value = value.replace(/""/g, '"');
+        }
+        return value.trim();
+    });
 }
