@@ -53,7 +53,7 @@ export default function WooCommerceFlow({ importableData, setImportableData }) {
                 <>
                     <h2>WooCommerce Import: Step 2</h2>
                     <p>Great! That WordPress XML export looks good.</p>
-                    <p>Now let's get the WooCommerce product export. In wp-admin, to <strong>Products</strong> → <strong>All Products</strong> → <strong>Export</strong>.</p>
+                    <p>Now let's get the WooCommerce product export. In wp-admin, go to <strong>Products</strong> → <strong>All Products</strong> → <strong>Export</strong>.</p>
                     
                     <img src="/export-instructions-woocommerce-2.png" alt="WooCommerce Export Instructions" />
 

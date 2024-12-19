@@ -14,8 +14,7 @@ export default function VoiceflowImportFlow({ importableData, setSuccess }) {
 
             // Generate headings for Voiceflow's API
             // Just in case an export is weird and has mismatched fields for products, we'll
-            // ensure our headings contain all the possible fields. We'll also strip out
-            // non letter and number characters from heading names to be safe.
+            // ensure our headings contain all the possible fields.
             
             const headings = [...new Set(
                 importableData.flatMap(item => Object.keys(item))
