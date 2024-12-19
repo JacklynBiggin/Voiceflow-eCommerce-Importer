@@ -3,7 +3,6 @@
     max-width: 600px;
     border: 1px dashed #4d5053;
     padding: 2em;
-    padding-bottom: 1em;
   }
   
   .formGroup {
@@ -106,4 +105,8 @@
     height: auto;
     display: block;
     margin: 1em auto;
+  }
+  
+  .form.success, .form.info {
+    padding-bottom: 1em; 
   }

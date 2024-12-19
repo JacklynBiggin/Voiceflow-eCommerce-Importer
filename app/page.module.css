@@ -83,18 +83,14 @@ a.secondary {
 
 .footer {
   grid-row-start: 3;
-  display: flex;
-  gap: 24px;
+  text-align: center;
+  display: block;
+  font-size: 0.8em;
+  max-width: 600px;
 }
 
 .footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
+  color: #5487f7;
 }
 
 /* Enable hover only on non-touch devices */

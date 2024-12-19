@@ -64,7 +64,7 @@ export default function VoiceflowImportFlow({ importableData, setSuccess }) {
         <div className={`${styles.form} ${styles.info}`}>
             <h2>Import to Voiceflow</h2>
             <p>✅ Your product data looks good! Now let's import it into Voiceflow.</p>
-            <p>Open the Voiceflow project that you'd like to import these projects into. Then, click the <strong>Integration</strong> option on the sidebar and select <strong>API keys</strong>. Copy your API key and paste it into the field below.</p>
+            <p>Open the Voiceflow project that you'd like to import these products into. Then, click the <strong>Integration</strong> option on the sidebar and select <strong>API keys</strong>. Copy your API key and paste it into the field below.</p>
 
             <img src="/import-instructions.png" alt="Voiceflow Import Instructions" />
 
