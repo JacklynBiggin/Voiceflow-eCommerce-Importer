@@ -1,0 +1,109 @@
+.form {
+    width: 100%;
+    max-width: 600px;
+    border: 1px dashed #4d5053;
+    padding: 2em;
+    padding-bottom: 1em;
+  }
+  
+  .formGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  .formGroup label {
+    display: block;
+    margin-bottom: 2em;
+    font-weight: 500;
+  }
+  
+  .platformButtons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .button {
+    background: #ffffff;
+    border-radius: 0.5rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    border: none;
+  }
+  
+  .button:hover {
+    transform: scale(1.03);
+  }
+  
+  .button img {
+    height: 3em;
+    width: auto;
+  }
+
+  .form img {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  .form p {
+    margin-bottom: 1em;
+  }
+
+
+  .form a {
+    color: #5487f7;
+  }
+
+  .form .error {
+    border: 1px dashed #ec6646;
+    padding: 1em;
+    margin-bottom: 1em;
+    background: rgba(220, 110, 80, 0.1);
+  }
+
+  .info {
+    border: 1px dashed #3554e1;
+  }
+
+  .success {
+    border: 1px dashed #67CE67;
+  }
+
+  .form input[type="text"] {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0;
+    font-size: 1rem;
+  }
+
+  .form button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background: #2a43b3;
+    color: white;
+    border: none;
+    border-radius: 0rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .form button[type="submit"]:hover {
+    background: #2a43b3;
+  }
+
+  .form.success.imgContainer {
+    text-align: center;
+  }
+
+  .form.success img {
+    width: 8em;
+    height: auto;
+    display: block;
+    margin: 1em auto;
+  }
