@@ -1,5 +1,6 @@
 import styles from "./form.module.css";
 import { useState } from 'react';
+import { trackImportSuccess } from '../helpers/mixpanel';
 
 export default function VoiceflowImportFlow({ importableData, setSuccess }) {
     const [error, setError] = useState('');
@@ -49,7 +50,8 @@ export default function VoiceflowImportFlow({ importableData, setSuccess }) {
                 throw new Error(errorMessage);
             }
 
-            // Handle successful import
+            // On successful import
+            trackImportSuccess(importableData[0].platform); // Now we can access the platform from the first product
             setSuccess(true);
 
         } catch (error) {

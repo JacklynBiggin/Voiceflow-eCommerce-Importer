@@ -5,6 +5,7 @@ import ShopifyFlow from "./ShopifyFlow";
 import WooCommerceFlow from "./WooCommerceFlow";
 import VoiceflowImportFlow from "./VoiceflowImportFlow";
 import SuccessfulImport from "./SuccessfulImport";
+import { trackPlatformSelection } from '../helpers/mixpanel';
 
 export default function Form() {
     const [platform, setPlatform] = useState(null);
@@ -15,47 +16,49 @@ export default function Form() {
         return <SuccessfulImport />;
     }
 
-    if (importableData !== null) {
+    if (importableData) {
         return <VoiceflowImportFlow
-        importableData={importableData}
-        setSuccess={setSuccess}
+            importableData={importableData}
+            setSuccess={setSuccess}
         />;
     }
 
     if (platform === 'shopify') {
         return <ShopifyFlow
-        setImportableData={setImportableData}
-/>;
+            setImportableData={setImportableData}
+            platform={platform}
+        />;
     }
 
     if (platform === 'woocommerce') {
         return <WooCommerceFlow 
             setImportableData={setImportableData}
+            platform={platform}
         />;
     }
 
     return (
-      <form className={styles.form}>
-        <div className={styles.formGroup}>
-          <label htmlFor="platform">Select your platform:</label>
-          <div className={styles.platformButtons}>
-            <button
-              type="button"
-              className={styles.button}
-              onClick={() => setPlatform('shopify')}
-            >
-              <img src="/shopify.svg" alt="" />
-            </button>
-            <button
-              type="button"
-              className={styles.button}
-              onClick={() => setPlatform('woocommerce')}
-            >
-              <img src="/woocommerce.svg" alt="" />
-            </button>
-          </div>
+        <div className={styles.form}>
+            <h2>Select your platform:</h2>
+            <div className={styles.platforms}>
+                <button
+                    onClick={() => {
+                        setPlatform('shopify');
+                        trackPlatformSelection('shopify');
+                    }}
+                >
+                    <img src="/shopify.svg" alt="Shopify" />
+                </button>
+                <button
+                    onClick={() => {
+                        setPlatform('woocommerce');
+                        trackPlatformSelection('woocommerce');
+                    }}
+                >
+                    <img src="/woocommerce.svg" alt="WooCommerce" />
+                </button>
+            </div>
         </div>
-      </form>
     );
 }
   

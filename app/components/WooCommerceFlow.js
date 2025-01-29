@@ -108,7 +108,8 @@ export default function WooCommerceFlow({ importableData, setImportableData }) {
                                                 
                                                 return {
                                                     ...wcProduct,
-                                                    link
+                                                    link,
+                                                    platform: 'woocommerce'
                                                 };
                                             })
                                             .filter(product => product !== null);

@@ -98,7 +98,8 @@ export default function WooCommerceFlow({ importableData, setImportableData }) {
                                         // Add link attribute to each product using store URL and handle
                                         const productsWithLinks = shopifyProductData.map(product => ({
                                             ...product,
-                                            link: `${storeUrl}/products/${product.Handle}`
+                                            link: `${storeUrl}/products/${product.Handle}`,
+                                            platform: 'shopify'
                                         }));
 
                                         setImportableData(productsWithLinks);

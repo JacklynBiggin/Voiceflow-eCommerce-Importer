@@ -3,88 +3,87 @@
     max-width: 600px;
     border: 1px dashed #4d5053;
     padding: 2em;
-  }
+}
   
-  .form h2 {
+.form h2 {
     margin-bottom: 0.5em;
-  }
+}
 
-  .formGroup {
+.formGroup {
     margin-bottom: 1.5rem;
-  }
+}
   
-  .formGroup label {
+.formGroup label {
     display: block;
     margin-bottom: 2em;
     font-weight: 500;
-  }
+}
   
-  .platformButtons {
+.platforms {
     display: flex;
     gap: 1rem;
     justify-content: center;
-  }
+}
   
-  .button {
+.platforms button {
     background: #ffffff;
-    border-radius: 0.5rem;
-    padding: 1rem 1.5rem;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 2rem;
     cursor: pointer;
     transition: all 0.2s;
-    position: relative;
-    border: none;
-  }
+    width: 250px;
+}
   
-  .button:hover {
+.platforms button:hover {
     transform: scale(1.03);
-  }
+}
   
-  .button img {
-    height: 3em;
-    width: auto;
-  }
+.platforms button img {
+    width: 100%;
+    height: auto;
+}
 
-  .form img {
+.form img {
     width: 100%;
     max-width: 600px;
     margin-top: 1em;
     margin-bottom: 1em;
-  }
+}
 
-  .form p {
+.form p {
     margin-bottom: 1em;
-  }
+}
 
-
-  .form a {
+.form a {
     color: #5487f7;
-  }
+}
 
-  .form .error {
+.form .error {
     border: 1px dashed #ec6646;
     padding: 1em;
     margin-bottom: 1em;
     background: rgba(220, 110, 80, 0.1);
-  }
+}
 
-  .info {
+.info {
     border: 1px dashed #3554e1;
-  }
+}
 
-  .success {
+.success {
     border: 1px dashed #67CE67;
-  }
+}
 
-  .form input[type="text"] {
+.form input[type="text"] {
     width: 100%;
     padding: 1rem;
     margin-bottom: 1rem;
     border: 1px solid #e2e8f0;
     border-radius: 0;
     font-size: 1rem;
-  }
+}
 
-  .form button[type="submit"] {
+.form button[type="submit"] {
     width: 100%;
     padding: 1rem;
     background: #2a43b3;
@@ -94,23 +93,23 @@
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.2s;
-  }
+}
 
-  .form button[type="submit"]:hover {
+.form button[type="submit"]:hover {
     background: #2a43b3;
-  }
+}
 
-  .form.success.imgContainer {
+.form.success.imgContainer {
     text-align: center;
-  }
+}
 
-  .form.success img {
+.form.success img {
     width: 8em;
     height: auto;
     display: block;
     margin: 1em auto;
-  }
+}
   
-  .form.success, .form.info {
+.form.success, .form.info {
     padding-bottom: 1em; 
-  }
+}
